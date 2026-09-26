@@ -44,7 +44,7 @@ internal sealed class WatchdogContext : ApplicationContext
 
         tray = new NotifyIcon
         {
-            Icon = SystemIcons.Application,
+            Icon = Icon.ExtractAssociatedIcon(System.Windows.Forms.Application.ExecutablePath) ?? SystemIcons.Application,
             Text = "IVAO Auto Reconnect",
             ContextMenuStrip = menu,
             Visible = true
