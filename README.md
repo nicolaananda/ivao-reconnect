@@ -15,11 +15,13 @@ A lightweight Windows system-tray watchdog for **IVAO Altitude** and **Microsoft
 - Manual **Reconnect Now** command.
 - Monitoring **On/Off** control.
 - Local activity log; no VID or password storage.
-- Single self-contained Windows x64 executable.
+- Small single-file Windows x64 executable.
 
 ## Download
 
-Download `IvaoAuto.exe` from the repository's **Releases** page. No installer or separate .NET installation is required.
+Download `IvaoAuto.exe` from the repository's **Releases** page.
+
+> **Required:** Install the [Microsoft .NET 8 Desktop Runtime (Windows x64)](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). Choose **Desktop Runtime**, not SDK or ASP.NET Runtime.
 
 Windows may show a SmartScreen warning because the executable is not code-signed. Review the source or build it yourself if preferred.
 
@@ -91,7 +93,7 @@ Then use **Open Log** and include the relevant lines when reporting an issue.
 
 ## Build from source
 
-Requirements: Windows and [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
+Requirements: Windows and [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) for building. End users need the .NET 8 Desktop Runtime.
 
 ```powershell
 ./build.ps1
@@ -101,7 +103,7 @@ Or:
 
 ```powershell
 dotnet restore
-dotnet publish -c Release -r win-x64 --self-contained true -o publish
+dotnet publish -c Release -r win-x64 --self-contained false -o publish
 ```
 
 Output:
@@ -117,3 +119,4 @@ The app works locally through Windows process inspection and UI Automation. It d
 ## License
 
 No license has been granted yet. Source code is visible for review, but redistribution and modification rights remain reserved until a license is added.
+
